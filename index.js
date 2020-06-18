@@ -89,26 +89,19 @@ const renderCards = (data, rootNode) => {
   rootNode.append(...nodes);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   const req = new XMLHttpRequest();
 
   // Handle response
   const reqListener = (e) => {
-    // Parse response
     const json = JSON.parse(req.responseText);
-
-    // Fill content
     renderCards(json, document.querySelector('#countries'));
-
-    // Hide Spinner
-    hide('#spinner')
-
-    // Show content
-    show('#countries')
+    hide('#spinner');
+    show('#countries');
   }
 
   // Make request
-  req.addEventListener("load", reqListener);
-  req.open("GET", api_endpoint);
+  req.addEventListener('load', reqListener);
+  req.open('GET', api_endpoint);
   req.send();
 });
