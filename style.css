@@ -1,5 +1,20 @@
-main {
-  margin-top: 3rem;
+.container-fluid {
+  margin-top: 1rem;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 4rem 0 0;
+  box-shadow:
+}
+
+.sidebar-sticky {
+  position: sticky;
+  height: 100vh;
 }
 
 .spinner-big {

@@ -18,77 +18,110 @@
   <title>Whole countries</title>
 </head>
 <body>
-  <main>
-    <div class="container">
-      <!-- Hero block -->
-      <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">Perhaps the title is really relevant. Below is a complete list of countries on the planet.</p>
-        <hr class="my-4">
-
-        <!-- Spinner -->
-        <section class="d-flex justify-content-center">
-          <div id="spinner" class="spinner-big spinner-grow text-warning"role="status">
-            <span class="sr-only">Loading...</span>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <aside class="col-md-2 d-none d-md-block sidebar">
+        <nav class="p-4 sidebar-sticky">
+          <h3 class="text-center">
+            Filter by region:
+          </h3>
+          <div class="btn-group-vertical btn-group-toggle w-100" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="option1" checked> All
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" value="Africa"> Africa
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" value="Americas"> Americas
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option4" value="Asia"> Asia
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option5" value="Europe"> Europe
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option6" value="Oceania"> Oceania
+            </label>
           </div>
-        </section>
+        </nav>
+      </aside>
 
-        <!-- Country list -->
-        <section>
-          <div id="countries" class="row row-cols-1 row-cols-md-2 row-cols-lg-3" hidden>
-            <!-- Card Template -->
-            <template id="countryCard">
-              <article class="col mb-4">
-                <div class="card h-100">
-                  <div class="card-image-wrapper">
-                    <img src="/images/fav/apple-touch-icon.png" class="card-img-top" alt="Flag">
+      <!-- Main content -->
+      <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <!-- Hero block -->
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, world!</h1>
+          <p class="lead">Perhaps the title is really relevant. Below is a complete list of countries on the planet.</p>
+          <hr class="my-4">
+
+          <!-- Spinner -->
+          <section class="d-flex justify-content-center">
+            <div id="spinner" class="spinner-big spinner-grow text-warning"role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </section>
+
+          <!-- Country list -->
+          <section>
+            <div id="countries" class="row row-cols-1 row-cols-md-2 row-cols-lg-3" hidden>
+              <!-- Card Template -->
+              <template id="countryCard">
+                <article class="col mb-4">
+                  <div class="card h-100">
+                    <div class="card-image-wrapper">
+                      <img src="/images/fav/apple-touch-icon.png" class="card-img-top" alt="Flag">
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Card Title</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Capital:
+                        <span class="card-slot-capital">Paris</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Population:
+                        <span class="card-slot-population">145 000 000</span>
+                      </li>
+                      <li class="list-group-item">
+                        Timezones:
+                        <ul class="card-slot-timezone no-dot pl-3">
+                          <!-- <li>UTC+07:00</li> -->
+                          <!-- <li>UTC+08:00</li> -->
+                          <!-- <li>UTC+10:00</li> -->
+                        </ul>
+                      </li>
+                      <li class="list-group-item">
+                        Currencies:
+                        <ul class="card-slot-currencies no-dot pl-3">
+                          <!-- <li>USD $</li> -->
+                          <!-- <li>EUR €</li> -->
+                        </ul>
+                      </li>                  
+                      <li class="list-group-item">
+                        Translations:
+                        <ul class="card-slot-translations no-dot pl-3">
+                          <!-- <li>de: Ukraine</li> -->
+                          <!-- <li>es: Ucrania</li> -->
+                          <!-- <li>it: Ucraina</li> -->
+                        </ul>
+                      </li>
+                    </ul>
                   </div>
-                  <div class="card-body">
-                    <h5 class="card-title">Card Title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      Capital:
-                      <span class="card-slot-capital">Paris</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      Population:
-                      <span class="card-slot-population">145 000 000</span>
-                    </li>
-                    <li class="list-group-item">
-                      Timezones:
-                      <ul class="card-slot-timezone no-dot pl-3">
-                        <!-- <li>UTC+07:00</li> -->
-                        <!-- <li>UTC+08:00</li> -->
-                        <!-- <li>UTC+10:00</li> -->
-                      </ul>
-                    </li>
-                    <li class="list-group-item">
-                      Currencies:
-                      <ul class="card-slot-currencies no-dot pl-3">
-                        <!-- <li>USD $</li> -->
-                        <!-- <li>EUR €</li> -->
-                      </ul>
-                    </li>                  
-                    <li class="list-group-item">
-                      Translations:
-                      <ul class="card-slot-translations no-dot pl-3">
-                        <!-- <li>de: Ukraine</li> -->
-                        <!-- <li>es: Ucrania</li> -->
-                        <!-- <li>it: Ucraina</li> -->
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </article>
-            </template>
-          </div>
-        </section> <!-- Country list -->
-        
-      </div> <!-- jumbotron -->
-    </div> <!-- container -->
-  </main>
+                </article>
+              </template>
+            </div>
+          </section> <!-- Country list -->
+          
+        </div> <!-- jumbotron -->
+      </main>
+      
+    </div> <!-- row -->
+  </div> <!-- container -->
   
 
   
