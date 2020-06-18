@@ -1,0 +1,15 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Frontend test task",
+  "main": "index.js",
+  "author": "Viacheslav Glazhevskyi <glajik@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "serve": "serve"
+  },
+  "dependencies": {
+    "serve": "^11.3.2"
+  }
+}
