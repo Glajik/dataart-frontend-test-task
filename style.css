@@ -10,3 +10,10 @@ main {
 *[hidden] {
   display: none;
 }
+
+.card img {
+  max-width: 6rem;
+  margin: 1rem;
+  border: 1px solid gray;
+  margin-bottom: 0;
+}

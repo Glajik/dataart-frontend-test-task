@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const reqListener = (e) => {
     // Parse response
     const json = JSON.parse(req.responseText);
-    console.log(json);
 
     // Fill content
     renderCards(json, document.querySelector('#countries'));
