@@ -7,6 +7,6 @@ main {
   height: 3rem;
 }
 
-section[hidden], #spinner[hidden] {
+*[hidden] {
   display: none;
 }
