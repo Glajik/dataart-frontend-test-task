@@ -1,4 +1,6 @@
-const api_endpoint = 'https://restcountries.eu/rest/v2/all';
+const api_endpoint = 'https://restcountries.eu/rest/v2';
+const api_method_all = () => api_endpoint + '/all';
+const api_method_region = region => api_endpoint + `/region/${region}`;
 
 // Check if browser support template elements
 if ('content' in document.createElement('template')) {
@@ -16,6 +18,8 @@ const hide = selector => {
   const element = document.querySelector(selector);
   element.setAttribute('hidden', '');
 }
+
+const removeChildren = node => node.innerHTML = '';
 
 // Render list items
 const renderListItems = list => list.map(value => {
@@ -35,7 +39,7 @@ const appendListNodes = (nodes, rootNode) => {
   if (nodes.length < 3) {
     rootNode.parentNode.classList.add(...style);
   }
-
+  removeChildren(rootNode);
   rootNode.append(...nodes);
 }
 
@@ -86,6 +90,7 @@ const renderCard = (template, props) => {
 const renderCards = (data, rootNode) => {
   const template = document.querySelector('#countryCard');
   const nodes = data.map(item => renderCard(template, item));
+  removeChildren(rootNode);
   rootNode.append(...nodes);
 }
 
@@ -94,14 +99,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle response
   const reqListener = (e) => {
+    console.log(req.responseText);
     const json = JSON.parse(req.responseText);
     renderCards(json, document.querySelector('#countries'));
     hide('#spinner');
     show('#countries');
   }
 
-  // Make request
+  // Make first request when page is load
   req.addEventListener('load', reqListener);
-  req.open('GET', api_endpoint);
+  req.open('GET', api_method_all());
   req.send();
+
+  // Add event listener to region filter
+  let filterState = 'All';
+  document.querySelector('.region-filter').addEventListener('click', (event) => {
+    event.preventDefault();
+    const { value } = event.target.control;
+    // Prevent request, when filter state not changed
+    if (filterState === value) {
+      return;
+    }
+    // Update filter state
+    filterState = value;
+    // Dispatch api method
+    const api_method = value === 'All' ? api_method_all : api_method_region;
+    // Make request
+    show('#spinner');
+    hide('#countries');
+    req.open('GET', api_method(value))
+    req.send();
+  });
 });

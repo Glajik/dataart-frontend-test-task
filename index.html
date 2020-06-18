@@ -26,24 +26,24 @@
           <h3 class="text-center">
             Filter by region:
           </h3>
-          <div class="btn-group-vertical btn-group-toggle w-100" data-toggle="buttons">
+          <div class="btn-group-vertical btn-group-toggle w-100 region-filter" data-toggle="buttons">
             <label class="btn btn-secondary active">
-              <input type="radio" name="options" id="option1" checked> All
+              <input type="radio" value="All" checked> All
             </label>
             <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" value="Africa"> Africa
+              <input type="radio" value="Africa"> Africa
             </label>
             <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option3" value="Americas"> Americas
+              <input type="radio" value="Americas"> Americas
             </label>
             <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option4" value="Asia"> Asia
+              <input type="radio" value="Asia"> Asia
             </label>
             <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option5" value="Europe"> Europe
+              <input type="radio" value="Europe"> Europe
             </label>
             <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option6" value="Oceania"> Oceania
+              <input type="radio" value="Oceania"> Oceania
             </label>
           </div>
         </nav>
@@ -67,53 +67,7 @@
           <!-- Country list -->
           <section>
             <div id="countries" class="row row-cols-1 row-cols-md-2 row-cols-lg-3" hidden>
-              <!-- Card Template -->
-              <template id="countryCard">
-                <article class="col mb-4">
-                  <div class="card h-100">
-                    <div class="card-image-wrapper">
-                      <img src="/images/fav/apple-touch-icon.png" class="card-img-top" alt="Flag">
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card Title</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Capital:
-                        <span class="card-slot-capital">Paris</span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Population:
-                        <span class="card-slot-population">145 000 000</span>
-                      </li>
-                      <li class="list-group-item">
-                        Timezones:
-                        <ul class="card-slot-timezone no-dot pl-3">
-                          <!-- <li>UTC+07:00</li> -->
-                          <!-- <li>UTC+08:00</li> -->
-                          <!-- <li>UTC+10:00</li> -->
-                        </ul>
-                      </li>
-                      <li class="list-group-item">
-                        Currencies:
-                        <ul class="card-slot-currencies no-dot pl-3">
-                          <!-- <li>USD $</li> -->
-                          <!-- <li>EUR €</li> -->
-                        </ul>
-                      </li>                  
-                      <li class="list-group-item">
-                        Translations:
-                        <ul class="card-slot-translations no-dot pl-3">
-                          <!-- <li>de: Ukraine</li> -->
-                          <!-- <li>es: Ucrania</li> -->
-                          <!-- <li>it: Ucraina</li> -->
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </article>
-              </template>
+              <!-- Cards... -->
             </div>
           </section> <!-- Country list -->
           
@@ -124,7 +78,53 @@
   </div> <!-- container -->
   
 
-  
+  <!-- Card Template -->
+  <template id="countryCard">
+    <article class="col mb-4">
+      <div class="card h-100">
+        <div class="card-image-wrapper">
+          <img src="/images/fav/apple-touch-icon.png" class="card-img-top" alt="Flag">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card Title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Capital:
+            <span class="card-slot-capital">Paris</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Population:
+            <span class="card-slot-population">145 000 000</span>
+          </li>
+          <li class="list-group-item">
+            Timezones:
+            <ul class="card-slot-timezone no-dot pl-3">
+              <!-- <li>UTC+07:00</li> -->
+              <!-- <li>UTC+08:00</li> -->
+              <!-- <li>UTC+10:00</li> -->
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Currencies:
+            <ul class="card-slot-currencies no-dot pl-3">
+              <!-- <li>USD $</li> -->
+              <!-- <li>EUR €</li> -->
+            </ul>
+          </li>                  
+          <li class="list-group-item">
+            Translations:
+            <ul class="card-slot-translations no-dot pl-3">
+              <!-- <li>de: Ukraine</li> -->
+              <!-- <li>es: Ucrania</li> -->
+              <!-- <li>it: Ucraina</li> -->
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </template>
   
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
