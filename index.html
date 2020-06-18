@@ -40,7 +40,9 @@
             <template id="countryCard">
               <article class="col mb-4">
                 <div class="card h-100">
-                  <img src="/images/fav/apple-touch-icon.png" class="card-img-top" alt="Flag">
+                  <div class="card-image-wrapper">
+                    <img src="/images/fav/apple-touch-icon.png" class="card-img-top" alt="Flag">
+                  </div>
                   <div class="card-body">
                     <h5 class="card-title">Card Title</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -54,39 +56,34 @@
                       Population:
                       <span class="card-slot-population">145 000 000</span>
                     </li>
-                    <li class="list-group-item  d-flex justify-content-between align-items-center">
+                    <li class="list-group-item">
                       Timezones:
-                      <div>
-                        <ul class="card-slot-timezone no-dot">
-                          <!-- <li>UTC+07:00</li> -->
-                          <!-- <li>UTC+08:00</li> -->
-                          <!-- <li>UTC+10:00</li> -->
-                        </ul>
-                      </div>
+                      <ul class="card-slot-timezone no-dot pl-3">
+                        <!-- <li>UTC+07:00</li> -->
+                        <!-- <li>UTC+08:00</li> -->
+                        <!-- <li>UTC+10:00</li> -->
+                      </ul>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <li class="list-group-item">
                       Currencies:
-                      <div>
-                        <ul class="card-slot-currencies no-dot">
-                          <!-- <li>USD $</li> -->
-                          <!-- <li>EUR €</li> -->
-                        </ul>
-                      </div>
+                      <ul class="card-slot-currencies no-dot pl-3">
+                        <!-- <li>USD $</li> -->
+                        <!-- <li>EUR €</li> -->
+                      </ul>
                     </li>                  
                     <li class="list-group-item">
                       Translations:
-                      <div>
-                        <ul class="card-slot-translations no-dot pl-3">
-                          <!-- <li>de: Ukraine</li> -->
-                          <!-- <li>es: Ucrania</li> -->
-                          <!-- <li>it: Ucraina</li> -->
-                        </ul>
-                      </div>
+                      <ul class="card-slot-translations no-dot pl-3">
+                        <!-- <li>de: Ukraine</li> -->
+                        <!-- <li>es: Ucrania</li> -->
+                        <!-- <li>it: Ucraina</li> -->
+                      </ul>
                     </li>
                   </ul>
-                </article>
-              </template>
-            </div>
+                </div>
+              </article>
+            </template>
+          </div>
         </section> <!-- Country list -->
         
       </div> <!-- jumbotron -->

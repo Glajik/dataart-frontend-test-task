@@ -24,6 +24,21 @@ const renderListItems = list => list.map(value => {
     return node;
 });
 
+/**
+ * Append list nodes with conditional styling for parent element.
+ * This makes possible to display a small number of items in a single row.
+ */ 
+const appendListNodes = (nodes, rootNode) => {
+  // Flex container via Bootstrap utility classes
+  const style = 'd-flex justify-content-between align-items-center'.split(' ');
+
+  if (nodes.length < 3) {
+    rootNode.parentNode.classList.add(...style);
+  }
+
+  rootNode.append(...nodes);
+}
+
 const renderCurrencies = items => {
   const strings = items.map(({ code, symbol }) => `${code} - ${symbol}`);
   return renderListItems(strings);
@@ -59,11 +74,11 @@ const renderCard = (template, props) => {
   node.querySelector('.card img').setAttribute('src', flag);
   node.querySelector('.card-title').textContent = name;
   node.querySelector('.card-subtitle').textContent = region;
-  node.querySelector('.card-slot-capital').textContent = capital;
+  node.querySelector('.card-slot-capital').textContent = capital || 'None';
   node.querySelector('.card-slot-population').textContent = population;
-  node.querySelector('.card-slot-timezone').append(...timezoneNodes);
-  node.querySelector('.card-slot-currencies').append(...currencyNodes);
-  node.querySelector('.card-slot-translations').append(...translationNodes);
+  appendListNodes(timezoneNodes, node.querySelector('.card-slot-timezone'));
+  appendListNodes(currencyNodes, node.querySelector('.card-slot-currencies'));
+  appendListNodes(translationNodes, node.querySelector('.card-slot-translations'));
   return node;
 }
 

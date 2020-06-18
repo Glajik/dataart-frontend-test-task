@@ -13,9 +13,18 @@ main {
 
 .card img {
   max-width: 6rem;
-  margin: 1rem;
   border: 1px solid gray;
+  margin: 1rem;
   margin-bottom: 0;
+}
+
+.card-image-wrapper {
+  min-height: 5rem;
+}
+
+.card-body {
+  flex: none;
+  height: 6rem;
 }
 
 ul.no-dot {
