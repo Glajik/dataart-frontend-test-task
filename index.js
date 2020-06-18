@@ -17,6 +17,24 @@ const hide = selector => {
   element.setAttribute('hidden', '');
 }
 
+// Render country card
+const renderCard = (template, props) => {
+  const { name, region, population, flag } = props;
+  const node = template.content.cloneNode(true);
+  node.querySelector('.card img').setAttribute('src', flag);
+  node.querySelector('.card-title').textContent = name;
+  node.querySelector('.card-subtitle').textContent = region;
+  node.querySelector('.card-text').textContent = `Population: ${population}`;
+  return node;
+}
+
+// Render array of cards
+const renderCards = (data, rootNode) => {
+  const template = document.querySelector('#countryCard');
+  const nodes = data.map(item => renderCard(template, item));
+  rootNode.append(...nodes);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const req = new XMLHttpRequest();
 
@@ -27,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(json);
 
     // Fill content
-
+    renderCards(json, document.querySelector('#countries'));
 
     // Hide Spinner
     hide('#spinner')
