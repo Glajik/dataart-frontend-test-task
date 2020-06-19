@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle response
   const reqListener = (e) => {
-    console.log(req.responseText);
     const json = JSON.parse(req.responseText);
     renderCards(json, document.querySelector('#countries'));
     hide('#spinner');
@@ -116,17 +115,22 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.region-filter').addEventListener('click', (event) => {
     event.preventDefault();
     const { value } = event.target.control;
+    
     // Prevent request, when filter state not changed
     if (filterState === value) {
       return;
     }
+    
     // Update filter state
     filterState = value;
+    
     // Dispatch api method
     const api_method = value === 'All' ? api_method_all : api_method_region;
-    // Make request
+    
     show('#spinner');
     hide('#countries');
+
+    // Make request
     req.open('GET', api_method(value))
     req.send();
   });
